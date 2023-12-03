@@ -1,0 +1,66 @@
+GRAMATICA DE GRAFICOS CON GGPLOT2
+
+
+Scale() : Define cómo se mapean los valores de los datos a los valores visuales, como el rango de colores o el rango de los ejes.
+
+scale_log10()
+scale_x_continuous() 
+scale_color_manual()
+
+
+Facets() : Permiten dividir los datos en subconjuntos y mostrarlos en paneles múltiples (facetas) según ciertas variables.
+
+facet_wrap() 
+facet_grid()
+
+
+
+Themes():  Controlan la apariencia visual general del gráfico, como títulos, etiquetas de ejes, fondos, etc.
+
+theme()
+
+
+Gemoetry(): Representa la forma en que los datos se visualizan en el gráfico, como puntos, líneas, barras, áreas, etc. Cada tipo de gráfico tiene su función correspondiente.
+
+geom_point()
+geom_bar()
+
+
+Aesthetics(): Definen cómo se mapean los atributos de los datos a propiedades visuales del gráfico, como posición en el eje X (x), posición en el eje Y (y), color, forma, tamaño, etc.
+
+aes()
+
+
+Data(): Representan los datos que se desee visualizar. Puede ser una tabla de datos (data.frame) en R u otra fuente de datos.
+
+
+
+		---- EJEMPLO -----
+
+Estructura clásica de un gráfico de puntos será: 
+		
+ggplot(data, # Los datos
+             Aes(x, y) # La estética
+             Geom_point()) + # la geometría 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

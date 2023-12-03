@@ -1,0 +1,57 @@
+@willandru
+Lenguaje de Programación : "R" 
+---------------------------------------------------------------------------------------------------------------
+
+
+#CREATE A DATAFRAME :
+
+	# Create a sample dataset
+	people_data <- data.frame(
+	  Person = c("Alice", "Bob", "Charlie", "David", "Emma"),
+	  Height_cm = c(160, 175, 155, 180, 162),
+	  Weight_kg = c(55, 70, 50, 85, 58)
+	)
+	
+#LEER DATOS DE EXCEL
+
+	library(readxl)
+
+	dat <- read_excel("data/datos_covid.xlsx")
+
+#LEER DATOS DE URL ://HTTPS
+	
+	url <- "https://github.com/TRACE-LAC/TRACE-LAC-data/blob/main/datos_covid.RDS?raw=true"
+	covid19 <- readr::read_rds(url)
+
+
+
+
+#CREATE A FUNCTION :
+
+	IMC <- # Aquí va el nombre de la función
+
+		function(peso, talla) { # Aquí van los argumentos o input
+
+	resultado <- peso/ talla^2  # Esta es el cuerpo u operación       
+
+	return(resultado) # Este es el output o resultado
+
+	}
+
+
+
+#MANEJO DE DATOS CON Y SI TUBERIAS %>% :
+
+	# TECNICA 1: NORMAL SIN USAR TUBERÍA
+	datos_filtrados <- filter(datos, edad>18)
+	datos_con_esquema <- mutate (datos_filtrados,
+		                     esquema = ifelse(dosis > 2, "Completo", "Incompleto")) 
+	datos_agrupados <- group_by(datos_con_esquema, esquema) 
+	datos_por_esquema <- summarize(datos_agrupados, personas = n())
+
+
+	#TÉCNICA 2: TUBERIA 'PIPE'
+	datos_por_esquema_pipe <- filter(datos, edad>18) %>%
+	  mutate(esquema=ifelse(dosis>2, 'Completo', 'Incompleto')) %>%
+	  group_by(esquema) %>%
+	  summarize(personas =n())

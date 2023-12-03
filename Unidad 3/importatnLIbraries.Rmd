@@ -1,0 +1,50 @@
+---
+title: "Important Libraries Data-Science"
+author: "willandru"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+El entorno  `tidyverse` tiene 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, echo=FALSE}
+library(dplyr)
+library(tidyverse)
+```
+
+
+
+## Manipulación de Datos con Tidyverse
+
+Algunas funciones clave de manipulación de datos proporcionadas por el paquete `tidyverse`
+
+
+###  `summarize()`
+La función `summarize()` se utiliza para resumir datos, proporcionando estadísticas descriptivas.
+
+
+
+```{r summary}
+# Ejemplo de summarize
+data <- data.frame(
+  grupo = c("A", "A", "B", "B"),
+  valor = c(10, 15, 8, 12)
+)
+
+summarize(data, promedio = mean(valor))
+
+```
+
+###  `select()`
+
+La función `select()` se utiliza para seleccionar columnas específicas de un conjunto de datos.
+
+```{r select}
+# Ejemplo de select
+select(data, grupo)
+
+```
