@@ -4,7 +4,7 @@ library(tidyverse)
 # 
 library(ggplot2)
 
-# url <- "https://github.com/TRACE-LAC/TRACE-LAC-data/blob/main/otros/muestra_covid.RDS?raw=true"
+url <- "https://github.com/TRACE-LAC/TRACE-LAC-data/blob/main/otros/muestra_covid.RDS?raw=true"
 datos <- readr::read_rds(url)
 
 str(datos)
