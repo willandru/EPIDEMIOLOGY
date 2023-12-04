@@ -1,4 +1,4 @@
-name: Document
+name: Publish Document
 title:
 username:
 account: rpubs
@@ -6,6 +6,6 @@ server: rpubs.com
 envVars: rpubs.com
 hostUrl: https://api.rpubs.com/api/v1/document/1124280/479df8bd739e44daafeb865c823ae9d0
 appId: https://api.rpubs.com/api/v1/document/1124280/479df8bd739e44daafeb865c823ae9d0
-bundleId: https://api.rpubs.com/api/v1/document/1124280/479df8bd739e44daafeb865c823ae9d0
-url: 1701659676.10938
+bundleId: http://rpubs.com/willandru/1124280
+url: 1701663171.02547
 version: 1

@@ -2,7 +2,10 @@
 title: "ggplot2"
 author: "willandru"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, echo=FALSE}
