@@ -55,3 +55,13 @@ Lenguaje de Programación : "R"
 	  mutate(esquema=ifelse(dosis>2, 'Completo', 'Incompleto')) %>%
 	  group_by(esquema) %>%
 	  summarize(personas =n())
+
+
+
+
+#GGPLOT2
+
+groupby()
+aes()
+select()
+filter()

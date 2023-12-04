@@ -8,6 +8,7 @@ url <- "https://github.com/TRACE-LAC/TRACE-LAC-data/blob/main/otros/muestra_covi
 datos <- readr::read_rds(url)
 
 str(datos)
+glimpse(datos)
 head(datos)
 summary(datos)
 
