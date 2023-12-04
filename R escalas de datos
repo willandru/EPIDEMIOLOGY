@@ -1,0 +1,32 @@
+@willandru
+TIPOS DE DATOS EN R
+____________________________________________________________________________-
+
+
+
+# DATOS NUMÉRICOS O CONTINUOS
+	scale_x_continuous()
+	scale_y_continuous()
+	scale_color_continuous(): asigna colores a los valores continuos. 
+	scale_size_continuous(): asigna tamaño a los valores. 
+	
+#DATOS CATEGÓRICOS O DE CARÁCTER 
+	scale_x_discrete()
+	scale_y_discrete()
+	scale_color_discrete(): asigna colores a los valores discretos.
+	scale_shape_discrete(): asigna diferentes formas a los diferentes valores discretos.
+	
+#DATOS FECHA
+	scale_x_date()
+	scale_y_date()
+	
+#ESCALA PERSONALIZADA
+	scale_color_manual(): se especifican manualmente los colores para los valores.
+	scale_shape_manual(): se especifican manualmente las formas para los valores. 
+
+#OTRAS ESCALAS
+	scale_fill_*: se usa similar a las escalas de color pero para colores que queramos con relleno.
+	scale_size_area(): asigna los valores al área en lugar del diámetro, lo que puede ser útil para los puntos.
+	scale_linetype(): para diferente tipos de línea.
+	scale_y_log10(): para hacer uso de escala logarítmica en eje y.
+	scale_colour_gradient(): crea un degradé de color entre bajo y alto o scale_colour_gradient2() en bajo, medio y alto. 

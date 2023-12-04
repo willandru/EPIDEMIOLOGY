@@ -32,5 +32,57 @@ ggplot(data=datos) +
 
 COVID_DEPAS <- datos %>% group_by(nombre_departamento) %>% summarise(casos=n())
 
-ggplot(data=COVID_DEPAS, aes(x=reorder(nombre_departamento, casos), y=casos))+
+ggplot(data=COVID_DEPAS, aes(x=reorder(nombre_departamento, -casos), y=casos))+
   geom_bar(stat = "identity") + coord_flip()
+
+ggplot(data=COVID_DEPAS, aes(x=reorder(nombre_departamento, casos), y=casos))+
+  geom_bar(stat = "identity") + coord_flip() + scale_y_log10(name='Casos confirmados COVID19 ESCALA LOG()')
+
+
+#FACETAS
+
+COVID_SEXO <- datos %>% group_by(edad, sexo) %>%
+  summarise(casos=n())
+ggplot(COVID_SEXO, aes(x=edad, y=casos, colour=casos)) +
+  geom_point()+
+  facet_wrap(~sexo)+
+  scale_color_gradient2()
+
+#THEMES
+
+ggplot(data=COVID_SEXO, aes(x=edad, y= casos))+
+  geom_point()+
+  facet_wrap(~sexo)+
+  theme_classic()
+
+ggplot(data=COVID_SEXO, aes(x=edad, y= casos))+
+  geom_point()+
+  facet_wrap(~sexo)+
+  theme_bw()
+
+#TITULOS Y EJES
+
+ggplot(data=COVID_SEXO, aes(x=edad, y= casos, colour=sexo))+
+  geom_point()+
+  facet_wrap(~sexo)+ 
+  labs(
+    y="Casos Diarios",
+    x="Edad en años",
+    title="Distribucion de casos de COVID19 en COLOMBIA"
+  )
+
+
+
+#EJECRICIO RECREAR GRAFICO
+
+COVID_RECREAR <- datos %>% group_by(fecha_de_notificacion,sexo) %>%
+  summarise(casos=n())
+ggplot(COVID_RECREAR, aes(x= fecha_de_notificacion, y=casos, colour=sexo ))+
+  geom_line()+
+  scale_color_manual(values = c("black", "yellow"))+
+  theme_bw()+
+  labs(
+    y="Numero de Casos",
+    x="Fecha de reporte a SIVIGILA",
+    title="Tendencia en el número de casos COVID-19 2020-2022"
+  )

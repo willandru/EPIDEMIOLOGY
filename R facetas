@@ -1,0 +1,16 @@
+@willandru
+FACETAS DE DATOS CON GGPLOT
+----------------------------------------------------------------
+
+
+
+facet_wrap()
+facet_grid()
+
+
+
+Las facetas (facets) en la gramática de gráficos son una forma de dividir los datos en subconjuntos 
+y representarlos en múltiples paneles dentro del mismo gráfico. 
+ Esto permite visualizar diferentes aspectos de los datos o comparar grupos de manera más efectiva.
+  En ggplot2, se puede usar la función facet_wrap() o facet_grid() para implementar las facetas,
+   dependiendo del número de variables a usar para la creación de los paneles.
