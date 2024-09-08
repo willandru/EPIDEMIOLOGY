@@ -1,0 +1,144 @@
+---
+title: "Vaccineff"
+author: "willandru"
+date: "2024-09-03"
+output: html_document
+---
+
+```{r }
+library("vaccineff")
+data(cohortdata)
+```
+
+
+
+```{r }
+vignette("vaccineff")
+```
+
+
+
+```{r }
+ls("package:vaccineff")
+```
+
+
+
+```{r }
+?make_vaccineff_data
+?cohortdata
+?effectiveness
+?get_age_group
+?plot_coverage
+```
+
+
+# ESTIMACION DIRECTA - SIN EMPAREJAMIENTO
+
+```{r }
+data("cohortdata")
+# Create `vaccineff_data`
+vaccineff_data <- make_vaccineff_data(data_set = cohortdata,
+                                      outcome_date_col = "death_date",
+                                      censoring_date_col = "death_other_causes",
+                                      vacc_date_col = "vaccine_date_2",
+                                      vaccinated_status = "v",
+                                      unvaccinated_status = "u",
+                                      immunization_delay = 15,
+                                      end_cohort = as.Date("2044-12-31"),
+                                      match = FALSE
+)
+# Print summary of data
+summary(vaccineff_data)
+```
+
+
+```{r }
+plot_coverage(vaccineff_data)
+```
+
+
+
+```{r }
+#Efectividad
+VE_SIN_EMPAREJAMIENTO <- effectiveness(vaccineff_data)
+summary(VE_SIN_EMPAREJAMIENTO)
+```
+
+
+```{r }
+plot(VE_SIN_EMPAREJAMIENTO, type = "loglog")
+```
+ # 90 dias y 80 dias
+
+```{r }
+# Estimate the Vaccine Effectiveness at 90 days
+ve90 <- effectiveness(vaccineff_data, at = 90)
+# Print summary of VE
+summary(ve90)
+plot(ve90, type = "loglog")
+```
+
+
+```{r }
+# Estimate the Vaccine Effectiveness at 180 days
+ve180 <- effectiveness(vaccineff_data, at = 180)
+# Print summary of VE
+summary(ve180)
+plot(ve180, type = "loglog")
+```
+
+# ESTIMACION CON EMPAREJAMIENTO
+
+```{r }
+data("cohortdata")
+# Create `vaccineff_data`
+vaccineff_data_EMPAREJADA <- make_vaccineff_data(data_set = cohortdata,
+                                      outcome_date_col = "death_date",
+                                      censoring_date_col = "death_other_causes",
+                                      vacc_date_col = "vaccine_date_2",
+                                      vaccinated_status = "v",
+                                      unvaccinated_status = "u",
+                                      immunization_delay = 15,
+                                      end_cohort = as.Date("2044-12-31"),
+                                      match = FALSE
+)
+# Print summary of data
+summary(vaccineff_data_EMPAREJADA)
+```
+
+
+```{r }
+plot_coverage(vaccineff_data_EMPAREJADA)
+```
+
+
+
+```{r }
+#Efectividad
+VE_EMPAREJADA <- effectiveness(vaccineff_data_EMPAREJADA)
+summary(VE_EMPAREJADA)
+```
+
+
+```{r }
+plot(VE_EMPAREJADA, type = "loglog")
+```
+ # 90 dias y 80 dias
+
+```{r }
+# Estimate the Vaccine Effectiveness at 90 days
+ve90 <- effectiveness(vaccineff_data_EMPAREJADA, at = 90)
+# Print summary of VE
+summary(ve90)
+plot(ve90, type = "loglog")
+```
+
+
+```{r }
+# Estimate the Vaccine Effectiveness at 180 days
+ve180 <- effectiveness(vaccineff_data_EMPAREJADA, at = 180)
+# Print summary of VE
+summary(ve180)
+plot(ve180, type = "loglog")
+```

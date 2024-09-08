@@ -9,3 +9,6 @@ remotes::install_github("epiverse-trace/vaccineff",
 
 library(vaccineff)
 vignette("vaccineff")
+
+data <- data("cohortdata")
+?cohortdata
